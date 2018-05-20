@@ -50,13 +50,13 @@ table{
     }
   }
 }
-.class-start{
+.class-start {
   td{
     text-align: left;
     font-weight: bold;
   }
 }
-thead{
+thead {
   tr{
     background: black;
     color: #fff;
@@ -76,8 +76,13 @@ footer{
 .banner{
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  // left: 0;
+  // right: 0;
   height: 8rem;
-  background:pink;
+  // background:pink;
+  // width: auto;
+  // display: flex;
+  // justify-content: flex-start;
+  // flex-wrap: nowrap;
+  font-size: 1.5rem;
 }

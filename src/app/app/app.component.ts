@@ -1,51 +1,31 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Substitute} from '../Models/Substitute';
+import {SubstituteService} from '../Services/substitute/substitute.service';
+import { RollTextService } from '../Services/roll-text/roll-text.service';
+import { RollText } from '../Models/RollText';
 
 @Component({
   selector: 'vf-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  date = new Date();
+export class AppComponent implements OnInit{
+  now = new Date()
+  todayDate = new Date(this.now.getFullYear(), this.now.getMonth(), this.now.getDate());
+  tomorrowDate = new Date(this.todayDate.getFullYear(), this.todayDate.getMonth(), this.todayDate.getDate() + 3);
+  today: Substitute[];
+  tomorrow: Substitute[];
+  rollText: RollText[];
 
-  today = [
-        {
-          rowtype:'row',
-          date: new Date(2018,5,10),
-          type: 'Entfall',
-          hour: '1',
-          subject: 'F',
-          class: '8b',
-          repre: 'Ku',
-          teacher: 'Ku',
-          room: '--',
-          text: ''
-        },
-        {
-          date: new Date(2018, 5, 10),
-          rowtype:'row',
-          type: 'Entfall',
-          hour: '1',
-          subject: 'F',
-          class: '8b',
-          repre: 'Ku',
-          teacher: 'Ku',
-          room: '--',
-          text: ''
-        },
-        {
-          date: new Date(2018, 5, 11),
-          rowtype:'row',
-          type: 'Vertretung',
-          hour: '1',
-          subject: 'F',
-          class: '8d',
-          repre: 'Ku',
-          teacher: 'Ku',
-          room: 'B2.5',
-          text: 'Klausur findet statt'
-        }
-      ];
+  constructor(private substituteService: SubstituteService,
+              private rollTextService: RollTextService) {}
 
+  ngOnInit(): void {
+    console.log(this.todayDate);
+    console.log(this.tomorrowDate);
+    this.substituteService.getSubstitutesForDate(this.todayDate).subscribe(s => {this.today = s;});
+    this.substituteService.getSubstitutesForDate(this.tomorrowDate).subscribe(s => {this.tomorrow = s; });
+    this.rollTextService.getRollTextsForDate(this.todayDate).subscribe(r => {this.rollText = r;console.table(this.rollText);});
 
-    }
+  }
+ }

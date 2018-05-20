@@ -5,10 +5,11 @@
         <h1>Untis<span> 2018</span></h1>
         <div class="right">
           GYMNASIUM BALINGEN D-72336, SZ LÄNGENFELD<br>
-          Schuljahr 2017/18  Stand {{date.toLocaleDateString()}} 7:45
+          Schuljahr 2017/18 Stand {{todayDate.toLocaleDateString()}} 7:45
         </div>
       </header>
-      <h3>{{date.toLocaleDateString()}} {{date.toLocaleDateString('de-DE',{'weekday':'long'})}}, Woche A (Seite 1/2)</h3>
+      <h3>{{todayDate.toLocaleDateString()}} {{todayDate.toLocaleDateString('de-DE',{'weekday':'long'})}}, Woche A
+        (Seite 1/2)</h3>
       <table>
         <thead>
           <tr>
@@ -46,10 +47,58 @@
       </footer>
     </section>
   </div>
+  <div class="page tomorrow">
+    <section>
+      <header>
+        <h1>Untis<span> 2018</span></h1>
+        <div class="right">
+          GYMNASIUM BALINGEN D-72336, SZ LÄNGENFELD<br>
+          Schuljahr 2017/18 Stand {{todayDate.toLocaleDateString()}} 7:45
+        </div>
+      </header>
+      <h3>{{tomorrowDate.toLocaleDateString()}} {{tomorrowDate.toLocaleDateString('de-DE',{'weekday':'long'})}}, Woche B
+        (Seite 1/2)</h3>
+      <table>
+        <thead>
+        <tr>
+          <th>Art</th>
+          <th>Stunde</th>
+          <th>Fach</th>
+          <th>Klasse(n)</th>
+          <th>Vertreter</th>
+          <th>(Lehrer)</th>
+          <th>Raum</th>
+          <th>Vertretungstext</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let row of tomorrow; index as i">
+          <tr *ngIf="tomorrow[i - 1]?.class != row.class" class="class-start">
+            <td colspan="8">{{row.class}}</td>
+          </tr>
+          <tr>
+            <td>{{row.type}}</td>
+            <td>{{row.hour}}</td>
+            <td>{{row.subject}}</td>
+            <td>{{row.class}}</td>
+            <td>{{row.repre}}</td>
+            <td>{{row.teacher}}</td>
+            <td>{{row.room}}</td>
+            <td>{{row.text}}</td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+      <footer>
+        <p>Gymnasium Balingen</p>
+        <a href="#">Untis Stundenplan Software</a>
+      </footer>
+    </section>
+  </div>
 </main>
 
-<div class="banner">
-  <p class="rolltext">
-
-  </p>
-</div>
+<marquee class="banner">
+  <ng-container *ngFor="let roll of rollText">
+    {{roll.text}}
+  </ng-container>
+</marquee>
