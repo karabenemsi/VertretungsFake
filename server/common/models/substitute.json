@@ -1,0 +1,41 @@
+{
+  "name": "Substitute",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date"
+    },
+    "type": {
+      "type": "string"
+    },
+    "hour": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string"
+    },
+    "repre": {
+      "type": "string"
+    },
+    "teacher": {
+      "type": "string"
+    },
+    "room": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
