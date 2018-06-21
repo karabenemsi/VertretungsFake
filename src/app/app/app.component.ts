@@ -11,8 +11,8 @@ import { RollText } from '../Models/RollText';
 })
 export class AppComponent implements OnInit{
   now = new Date()
-  todayDate = new Date(this.now.getFullYear(), this.now.getMonth(), this.now.getDate());
-  tomorrowDate = new Date(this.todayDate.getFullYear(), this.todayDate.getMonth(), this.todayDate.getDate() + 3);
+  todayDate = new Date(2018,5,29);
+  tomorrowDate = new Date(2018,6,2);
   today: Substitute[];
   tomorrow: Substitute[];
   rollText: RollText[];

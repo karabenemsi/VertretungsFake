@@ -97,8 +97,18 @@
   </div>
 </main>
 
-<marquee class="banner">
-  <ng-container *ngFor="let roll of rollText">
-    {{roll.text}}
-  </ng-container>
-</marquee>
+<div class="banner marquee">
+    <div>
+        <span>
+          <ng-container *ngFor="let roll of rollText">
+            {{roll.text}}
+          </ng-container>
+        </span>
+        <span>
+          <ng-container *ngFor="let roll of rollText">
+            {{roll.text}}
+          </ng-container>
+        </span>
+      </div>
+
+</div>
