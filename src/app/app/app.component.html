@@ -1,15 +1,66 @@
-<main>
-  <div class="page today">
+<div *ngFor="let page of pages; index as j" class="page page-{{j}}" [ngClass]="{'visible':j===0,'invisible':j!==0}">
+  <div class="half today">
     <section>
       <header>
-        <h1>Untis<span> 2018</span></h1>
+        <h1>Untis
+          <span> 2018</span>
+        </h1>
         <div class="right">
-          GYMNASIUM BALINGEN D-72336, SZ LÄNGENFELD<br>
-          Schuljahr 2017/18 Stand {{todayDate.toLocaleDateString()}} 7:45
+          GYMNASIUM BALINGEN D-72336, SZ LÄNGENFELD
+          <br> Schuljahr 2017/18 Stand {{todayDate.toLocaleDateString()}} 7:45
         </div>
       </header>
-      <h3>{{todayDate.toLocaleDateString()}} {{todayDate.toLocaleDateString('de-DE',{'weekday':'long'})}}, Woche A
-        (Seite 1/2)</h3>
+      <h3>{{todayDate.toLocaleDateString()}} {{todayDate.toLocaleDateString('de-DE',{'weekday':'long'})}}, Woche A (Seite {{j+1}}/{{pages.length}})</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Art</th>
+            <th>Stunde</th>
+            <th>Fach</th>
+            <th>Klasse(n)</th>
+            <th>Vertreter</th>
+            <th>(Lehrer)</th>
+            <th>Raum</th>
+            <th>Vertretungstext</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <ng-container *ngFor="let row of today.slice(j*breakIndex, (j+1)*breakIndex); index as i">
+            <tr *ngIf="today.slice(j*breakIndex, (j+1)*breakIndex)[i - 1]?.class != row.class" class="class-start">
+              <td colspan="8">{{row.class}}</td>
+            </tr>
+            <tr>
+              <td>{{row.type}}</td>
+              <td>{{row.hour}}</td>
+              <td [ngClass]="{ 'line-through': (row.type == 'Entfall')}">{{row.subject}}</td>
+              <td>{{row.class}}</td>
+              <td [ngClass]="{ 'line-through': (row.type == 'Entfall')}">{{row.repre}}</td>
+              <td style="text-decoration: line-through">{{row.teacher}}</td>
+              <td>{{row.room}}</td>
+              <td>{{row.text}}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <footer>
+        <p>Gymnasium Balingen</p>
+        <a href="#">Untis Stundenplan Software</a>
+      </footer>
+    </section>
+  </div>
+  <div class="half tomorrow">
+    <section>
+      <header>
+        <h1>Untis
+          <span> 2018</span>
+        </h1>
+        <div class="right">
+          GYMNASIUM BALINGEN D-72336, SZ LÄNGENFELD
+          <br> Schuljahr 2017/18 Stand {{todayDate.toLocaleDateString()}} 7:45
+        </div>
+      </header>
+      <h3>{{tomorrowDate.toLocaleDateString()}} {{tomorrowDate.toLocaleDateString('de-DE',{'weekday':'long'})}}, Woche B (Seite {{j+1}}/{{pages.length}})</h3>
       <table>
         <thead>
           <tr>
@@ -24,8 +75,8 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let row of today; index as i">
-            <tr *ngIf="today[i - 1]?.class != row.class" class="class-start">
+          <ng-container *ngFor="let row of tomorrow.slice(j*breakIndex, (j+1)*breakIndex); index as i">
+            <tr *ngIf="tomorrow.slice(j*breakIndex, (j+1)*breakIndex)[i - 1]?.class != row.class" class="class-start">
               <td colspan="8">{{row.class}}</td>
             </tr>
             <tr>
@@ -47,68 +98,20 @@
       </footer>
     </section>
   </div>
-  <div class="page tomorrow">
-    <section>
-      <header>
-        <h1>Untis<span> 2018</span></h1>
-        <div class="right">
-          GYMNASIUM BALINGEN D-72336, SZ LÄNGENFELD<br>
-          Schuljahr 2017/18 Stand {{todayDate.toLocaleDateString()}} 7:45
-        </div>
-      </header>
-      <h3>{{tomorrowDate.toLocaleDateString()}} {{tomorrowDate.toLocaleDateString('de-DE',{'weekday':'long'})}}, Woche B
-        (Seite 1/2)</h3>
-      <table>
-        <thead>
-        <tr>
-          <th>Art</th>
-          <th>Stunde</th>
-          <th>Fach</th>
-          <th>Klasse(n)</th>
-          <th>Vertreter</th>
-          <th>(Lehrer)</th>
-          <th>Raum</th>
-          <th>Vertretungstext</th>
-        </tr>
-        </thead>
-        <tbody>
-        <ng-container *ngFor="let row of tomorrow; index as i">
-          <tr *ngIf="tomorrow[i - 1]?.class != row.class" class="class-start">
-            <td colspan="8">{{row.class}}</td>
-          </tr>
-          <tr>
-            <td>{{row.type}}</td>
-            <td>{{row.hour}}</td>
-            <td>{{row.subject}}</td>
-            <td>{{row.class}}</td>
-            <td>{{row.repre}}</td>
-            <td>{{row.teacher}}</td>
-            <td>{{row.room}}</td>
-            <td>{{row.text}}</td>
-          </tr>
-        </ng-container>
-        </tbody>
-      </table>
-      <footer>
-        <p>Gymnasium Balingen</p>
-        <a href="#">Untis Stundenplan Software</a>
-      </footer>
-    </section>
-  </div>
-</main>
+</div>
 
 <div class="banner marquee">
-    <div>
-        <span>
-          <ng-container *ngFor="let roll of rollText">
-            {{roll.text}}
-          </ng-container>
-        </span>
-        <span>
-          <ng-container *ngFor="let roll of rollText">
-            {{roll.text}}
-          </ng-container>
-        </span>
-      </div>
+  <div>
+    <span>
+      <ng-container *ngFor="let roll of rollText">
+        {{roll.text}}
+      </ng-container>
+    </span>
+    <span>
+      <ng-container *ngFor="let roll of rollText">
+        {{roll.text}}
+      </ng-container>
+    </span>
+  </div>
 
 </div>

@@ -1,10 +1,10 @@
-main{
+.page{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 100%;
 }
 
-.page {
+.half {
   padding: 1rem;
 }
 header {
@@ -50,6 +50,11 @@ table{
     }
   }
 }
+
+.line-through{
+  text-decoration: line-through;
+}
+
 .class-start {
   td{
     text-align: left;
@@ -79,7 +84,7 @@ footer{
   // left: 0;
   // right: 0;
   height: 8rem;
-  // background:pink;
+  background: #fff;
   // width: auto;
   // display: flex;
   // justify-content: flex-start;
@@ -90,7 +95,7 @@ footer{
 .marquee {
   width: 100%;
   overflow: hidden;
-  position: relative;
+  // position: relative;
 }
 
 .marquee div {
@@ -113,4 +118,14 @@ footer{
   100% {
     left: -100%;
   }
+}
+
+.visible{
+  opacity: 1;
+  display: grid;
+}
+
+.invisible{
+  opacity: 0;
+  display: none;
 }

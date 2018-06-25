@@ -14,7 +14,6 @@ export class RollTextService {
   constructor(private http: HttpClient) { }
 
   getRollTextsForDate(date: Date): Observable<RollText[]> {
-    console.log(date.toISOString().substring(0, 10));
     return this.http.get<RollText[]>('http://localhost:3000/api/RollTexts?filter=' +
     '{"where":{"and":[{"startDate":{"lt":"'
      +  date.toISOString().substring(0, 10)
