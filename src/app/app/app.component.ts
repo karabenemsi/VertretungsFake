@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
   pages: number[] = [];
 
   // Config Vars
-  breakIndex: number = 12;
-  pageDuration: number = 10000; //Milliseconds
+  breakIndex: number = 16;
+  pageDuration: number = 20000; //Milliseconds
 
   constructor(private substituteService: SubstituteService,
     private rollTextService: RollTextService) { }

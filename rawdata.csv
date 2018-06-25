@@ -1,4 +1,21 @@
-date,type,hour,subject,class,repre,teacher,room,text
-2018-05-10T12:00:00.000Z,Vertretung,3-4,Ch,5d,Kt,Re,B2.10,Arbeitsauftrag
-2018-05-10T12:00:00.000Z,Vertretung,3-4,Ch,5d,Kt,Re,B2.10,Arbeitsauftrag
-2018-05-10T12:00:00.000Z,Vertretung,3-4,Ch,5d,Kt,Re,B2.10,Arbeitsauftrag
+date,class,hour,subject,type,ex,room,text,repre,teacher
+2018-06-28T12:00:00.000Z,5a,5 - 6,D,Entfall,---,---
+2018-06-28T12:00:00.000Z,5a 5b 5c 5d 5e,8 - 9,Textv.,Entfall,---,---
+2018-06-28T12:00:00.000Z,6b,1,Förder M,Entfall,---,---
+2018-06-28T12:00:00.000Z,6b,3,BIO,Tausch,D,C2.9
+2018-06-28T12:00:00.000Z,6b,4,BIO,Tausch,D,C2.9
+2018-06-28T12:00:00.000Z,6b,8 - 9,M,Entfall,---,---
+2018-06-28T12:00:00.000Z,6d,3 - 4,BK,Entfall,---,---
+2018-06-28T12:00:00.000Z,6e,8 - 9,BK,Entfall,---,---
+2018-06-28T12:00:00.000Z,9d,1 - 2,GK,Entfall,---,---
+2018-06-28T12:00:00.000Z,10b,1,F,Tausch,E,B3.4
+2018-06-28T12:00:00.000Z,10b,2,F,Tausch,E,B3.4
+2018-06-28T12:00:00.000Z,K1xxxx,5 - 6,M3,Vertretung,M3,B2.4,evtl. lange Deutschklausur in K1
+2018-06-28T12:00:00.000Z,(K2),1 - 2,E6,Freisetzung,---,---
+2018-06-28T12:00:00.000Z,(K2),1 - 2,M5,Freisetzung,---,---
+2018-06-28T12:00:00.000Z,(K2),1 - 2,M2,Freisetzung,---,---
+2018-06-28T12:00:00.000Z,(K2),1 - 2,E2,Freisetzung,---,---
+2018-06-28T12:00:00.000Z,(K2),1 - 2,M3,Freisetzung,---,---
+2018-06-28T12:00:00.000Z,(K2),1 - 2,D6,Freisetzung,---,---
+2018-06-28T12:00:00.000Z,(K2),3 - 4,M6,Freisetzung,---,---
+2018-06-28T12:00:00.000Z,(K2),3 - 4,Ch1,Freisetzung,---,---

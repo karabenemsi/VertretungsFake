@@ -28,7 +28,7 @@ function createString(result){
 }
 
 function writeFile(data){
-     var data = 
+     var data =
      "{ \n"+
      "  \"ids\": { \n"+
      "    \"Substitute\": 2,\n"+
@@ -45,5 +45,5 @@ function writeFile(data){
      "  }\n" +
      "}\n";
     console.log(data);
-    // fs.writeFileSync(path.join(__dirname, './server/rawdata.json'), data);
+    fs.writeFileSync(path.join(__dirname, './server/data.json'), data);
 }
