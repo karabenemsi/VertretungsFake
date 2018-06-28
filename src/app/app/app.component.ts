@@ -13,8 +13,8 @@ import 'rxjs/add/observable/interval';
 })
 export class AppComponent implements OnInit {
   now = new Date()
-  todayDate = new Date(2018, 5, 29);
-  tomorrowDate = new Date(2018, 6, 2);
+  todayDate = new Date(2018, 5, 28);
+  tomorrowDate = new Date(2018, 5, 29);
   today: Substitute[];
   tomorrow: Substitute[];
   rollText: RollText[];
